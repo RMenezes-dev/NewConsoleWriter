@@ -86,6 +86,48 @@ namespace NewConsoleWriter.Core
         }
         #endregion
 
+        #region SEMANTIC METHODS
+        public static void WriteInfo(string text)
+        {
+            Write(text, ConsoleColor.Blue);
+        }
+
+        public static void WriteLineInfo(string text)
+        {
+            WriteLine(text, ConsoleColor.Blue);
+        }
+
+        public static void WriteSuccess(string text)
+        {
+            Write(text, ConsoleColor.Green);
+        }
+
+        public static void WriteLineSuccess(string text)
+        {
+            WriteLine(text, ConsoleColor.Green);
+        }
+
+        public static void WriteWarning(string text)
+        {
+            Write(text, ConsoleColor.Yellow);
+        }
+
+        public static void WriteLineWarning(string text)
+        {
+            WriteLine(text, ConsoleColor.Yellow);
+        }
+
+        public static void WriteError(string text)
+        {
+            Write(text, ConsoleColor.Red);
+        }
+
+        public static void WriteLineError(string text)
+        {
+            WriteLine(text, ConsoleColor.Red);
+        }
+        #endregion
+
         #region PRIVATE METHODS
         private static string ApplyTransform(string text, TextTransform transform)
         {
@@ -99,12 +141,5 @@ namespace NewConsoleWriter.Core
             };
         }
         #endregion
-
-        public static void Teste()
-        {
-            WriteLine("Upper case",
-                ConsoleColor.Yellow,
-                TextTransform.UpperCase);
-        }
     }
 }
