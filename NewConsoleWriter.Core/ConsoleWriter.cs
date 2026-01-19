@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace ConsoleWriter.Core
+namespace NewConsoleWriter.Core
 {
-    public static class ConsoleWrite
+    public static class ConsoleWriter
     {
         #region GENERIC METHODS
         public static void Write(
@@ -99,5 +99,12 @@ namespace ConsoleWriter.Core
             };
         }
         #endregion
+
+        public static void Teste()
+        {
+            WriteLine("Upper case",
+                ConsoleColor.Yellow,
+                TextTransform.UpperCase);
+        }
     }
 }

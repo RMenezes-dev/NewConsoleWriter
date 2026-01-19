@@ -1,11 +1,19 @@
 # ConsoleWriter
 
-Biblioteca .NET para facilitar escrita colorida em aplicações
-de console e processos batch.
+.NET library to facilitate colored writing in console 
+applications and batch processes.
 
 ## Status
-🚧 Em desenvolvimento
+🚧 Under development
 
-## Objetivo
-Simplificar a escrita de mensagens no console com cores,
-mantendo o código limpo e legível.
+## Objective
+To simplify writing messages in the console with colors,
+keeping the code clean and readable.
+
+## Basic Use
+
+```csharp
+using NewConsoleWriter.Core;
+
+ConsoleWriter.WriteLine("My Green Text Here", ConsoleColor.Green);
+ConsoleWriter.WriteLine("ERROR!", ConsoleColor.White, ConsoleColor.Red);```

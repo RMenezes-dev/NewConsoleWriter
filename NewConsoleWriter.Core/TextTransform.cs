@@ -1,4 +1,4 @@
-﻿namespace ConsoleWriter.Core
+﻿namespace NewConsoleWriter.Core
 {
     public enum TextTransform
     {
