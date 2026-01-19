@@ -13,10 +13,10 @@ namespace NewConsoleWriter.Tests
         {
             var output = CaptureConsoleOutput(() =>
             {
-                ConsoleWriter.WriteLine("Teste", ConsoleColor.Green);
+                ConsoleWriter.WriteLine("WriteLine Test", ConsoleColor.Green);
             });
 
-            Assert.Equal("Teste" + Environment.NewLine, output);
+            Assert.Equal("WriteLine Test" + Environment.NewLine, output);
         }
 
         [Fact]
@@ -25,13 +25,13 @@ namespace NewConsoleWriter.Tests
             var output = CaptureConsoleOutput(() =>
             {
                 ConsoleWriter.WriteLine(
-                    "teste",
+                    "UpperCase Test",
                     ConsoleColor.Green,
                     TextTransform.UpperCase
                 );
             });
 
-            Assert.Equal("TESTE" + Environment.NewLine, output);
+            Assert.Equal("UPPERCASE TEST" + Environment.NewLine, output);
         }
 
         [Fact]
@@ -40,13 +40,13 @@ namespace NewConsoleWriter.Tests
             var output = CaptureConsoleOutput(() =>
             {
                 ConsoleWriter.WriteLine(
-                    "TeStE",
+                    "LowERcaSe TeSt",
                     ConsoleColor.Green,
                     TextTransform.LowerCase
                 );
             });
 
-            Assert.Equal("teste" + Environment.NewLine, output);
+            Assert.Equal("lowercase test" + Environment.NewLine, output);
         }
 
         [Fact]
@@ -55,14 +55,14 @@ namespace NewConsoleWriter.Tests
             var output = CaptureConsoleOutput(() =>
             {
                 ConsoleWriter.WriteLine(
-                    "erro crítico no sistema",
+                    "the titlecase test",
                     ConsoleColor.Red,
                     TextTransform.TitleCase
                 );
             });
 
             Assert.Equal(
-                "Erro Crítico No Sistema" + Environment.NewLine,
+                "The Titlecase Test" + Environment.NewLine,
                 output
             );
         }
@@ -76,7 +76,7 @@ namespace NewConsoleWriter.Tests
             CaptureConsoleOutput(() =>
             {
                 ConsoleWriter.WriteLine(
-                    "Erro",
+                    "Error Message",
                     ConsoleColor.White,
                     ConsoleColor.Red
                 );
