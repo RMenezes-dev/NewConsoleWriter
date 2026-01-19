@@ -5,6 +5,27 @@
     <LangVersion>8.0</LangVersion>
     <Nullable>enable</Nullable>
     <ImplicitUsings>disable</ImplicitUsings>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
+
+    <!-- NuGet metadata -->
+    <PackageId>NewConsoleWriter</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Rafael Menezes</Authors>
+    <Company>RMenezes-dev</Company>
+    <Description>
+      Lightweight .NET library to simplify colored console output.
+    </Description>
+
+    <PackageTags>console batch colors logging</PackageTags>
+    <RepositoryUrl>https://github.com/RMenezes-dev/NewConsoleWriter</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <AssemblyName>NewConsoleWriter</AssemblyName>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="README.md" Pack="true" PackagePath="" />
+  </ItemGroup>
 
 </Project>
