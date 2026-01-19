@@ -28,8 +28,11 @@ ConsoleWriter.WriteLine(
 ## Semantic Methods
 
 ConsoleWriter.WriteLineSuccess("Process finished successfully");
+
 ConsoleWriter.WriteLineWarning("Warning: incomplete data");
+
 ConsoleWriter.WriteLineError("Error while processing file");
+
 ConsoleWriter.WriteLineInfo("Starting routine");
 
 ## Text Transformations
