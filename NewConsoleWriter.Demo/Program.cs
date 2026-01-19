@@ -4,18 +4,37 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("Texto normal");
+        Console.WriteLine("Regular text");
+        Console.WriteLine();
 
         ConsoleWriter.WriteLine(
-            "Texto verde", ConsoleColor.Green);
+            "Green text", ConsoleColor.Green);
 
         ConsoleWriter.WriteLine(
-            "Texto vermelho com fundo branco", ConsoleColor.Red, ConsoleColor.White);
+            "Red text with white background", ConsoleColor.Red, ConsoleColor.White);
 
         ConsoleWriter.WriteLine(
-            "Upper case", ConsoleColor.Yellow, TextTransform.UpperCase);
+            "Upper case text", ConsoleColor.Yellow, TextTransform.UpperCase);
 
-        Console.WriteLine("Texto normal novamente");
+        ConsoleWriter.WriteLine(
+            "system critical error", ConsoleColor.Red, TextTransform.TitleCase);
+
+        ConsoleWriter.WriteLine(
+            "PROCESSING COMPLETED", ConsoleColor.Green, TextTransform.TitleCase);
+
+        ConsoleWriter.WriteLine(
+            "Text in MiXed CaSe To GO tO LoWeR", ConsoleColor.Yellow, TextTransform.LowerCase);
+
+        Console.WriteLine("Regular text");
+        Console.WriteLine();
+
+        ConsoleWriter.WriteLineInfo("Starting routine");
+        ConsoleWriter.WriteLineSuccess("Process successfully completed");
+        ConsoleWriter.WriteLineWarning("Attention: incomplete data");
+        ConsoleWriter.WriteLineError("Error processing file");
+        Console.WriteLine();
+
+        Console.WriteLine("Regular text");
 
         Console.ReadKey();
     }

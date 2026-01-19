@@ -3,6 +3,8 @@
     public enum TextTransform
     {
         None,
-        UpperCase
+        UpperCase,
+        LowerCase,
+        TitleCase
     }
 }

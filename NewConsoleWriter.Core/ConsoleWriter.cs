@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 
 namespace NewConsoleWriter.Core
 {
@@ -131,12 +132,21 @@ namespace NewConsoleWriter.Core
         #region PRIVATE METHODS
         private static string ApplyTransform(string text, TextTransform transform)
         {
-            if (text == null)
+            if (string.IsNullOrEmpty(text))
                 return string.Empty;
 
             return transform switch
             {
-                TextTransform.UpperCase => text.ToUpperInvariant(),
+                TextTransform.UpperCase =>
+                    text.ToUpperInvariant(),
+
+                TextTransform.LowerCase =>
+                    text.ToLowerInvariant(),
+
+                TextTransform.TitleCase =>
+                    CultureInfo.InvariantCulture.TextInfo
+                        .ToTitleCase(text.ToLowerInvariant()),
+
                 _ => text
             };
         }
