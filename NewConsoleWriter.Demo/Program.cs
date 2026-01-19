@@ -17,13 +17,13 @@ class Program
             "Upper case text", ConsoleColor.Yellow, TextTransform.UpperCase);
 
         ConsoleWriter.WriteLine(
+            "Text in MiXed CaSe To GO tO LoWeR", ConsoleColor.Yellow, TextTransform.LowerCase);
+
+        ConsoleWriter.WriteLine(
             "system critical error", ConsoleColor.Red, TextTransform.TitleCase);
 
         ConsoleWriter.WriteLine(
             "PROCESSING COMPLETED", ConsoleColor.Green, TextTransform.TitleCase);
-
-        ConsoleWriter.WriteLine(
-            "Text in MiXed CaSe To GO tO LoWeR", ConsoleColor.Yellow, TextTransform.LowerCase);
 
         Console.WriteLine("Regular text");
         Console.WriteLine();
