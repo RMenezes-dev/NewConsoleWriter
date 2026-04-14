@@ -1,10 +1,8 @@
-using System;
-using System.IO;
-using Xunit;
 using NewConsoleWriter.Core;
 
 namespace NewConsoleWriter.Tests
 {
+    [Collection("Console Collection")]
     public class ConsoleWriterTests
     {
         #region GENERIC METHODS TESTS
@@ -142,6 +140,125 @@ namespace NewConsoleWriter.Tests
                 "Error Text" + Environment.NewLine,
                 output
             );
+        }
+        #endregion
+
+        #region HEADER METHODS TESTS
+        [Fact]
+        public void WriteHeader_Should_Write_Single_Line_For_Short_Text()
+        {
+            var output = CaptureConsoleOutput(() =>
+            {
+                ConsoleWriter.WriteHeader("Title Text");
+            });
+
+            var lines = output.ToString()
+                .Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);
+
+            Assert.Equal(3, lines.Length);
+        }
+
+        [Fact]
+        public void WriteHeader_Should_Have_Top_And_Bottom_Borders()
+        {
+            var output = CaptureConsoleOutput(() =>
+            {
+                ConsoleWriter.WriteHeader("Test");
+            });
+
+            var lines = output.ToString()
+                .Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);
+
+            Assert.StartsWith("=", lines.First());
+            Assert.StartsWith("=", lines.Last());
+
+            Assert.Equal(44, lines.First().Length);
+            Assert.Equal(44, lines.Last().Length);
+        }
+
+        [Fact]
+        public void WriteHeader_All_Lines_Should_Have_44_Characters()
+        {
+            var output = CaptureConsoleOutput(() =>
+            {
+                ConsoleWriter.WriteHeader("The Title Text That is too Big");
+            });
+
+            var lines = output.ToString()
+                .Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);
+
+            foreach (var line in lines)
+            {
+                Assert.Equal(44, line.Length);
+            }
+        }
+
+        [Fact]
+        public void WriteHeader_Should_Not_Lose_Text()
+        {
+            var input = "Very important text for verifying the integrity";
+
+            var output = CaptureConsoleOutput(() =>
+            {
+                ConsoleWriter.WriteHeader(input);
+            });
+
+            foreach (var word in input.Split(' '))
+            {
+                Assert.Contains(word, output);
+            }
+        }
+
+        [Fact]
+        public void WriteHeader_Should_Handle_Long_Word()
+        {
+            var output = CaptureConsoleOutput(() =>
+            {
+                ConsoleWriter.WriteHeader(new string('A', 60));
+            });
+
+            var lines = output.ToString()
+                .Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);
+
+            Assert.True(lines.Length > 3);
+        }
+
+        [Fact]
+        public void WriteHeader_Should_Not_Lose_Content_In_Long_Mixed_Text()
+        {
+            var input = "1234567890 1234567890123456789012345678901234567890123456789 12345678901234567890";
+
+            var output = CaptureConsoleOutput(() =>
+            {
+                ConsoleWriter.WriteHeader(input);
+            });
+
+            Assert.Contains("1234567890", output);
+            Assert.Contains("12345678901234567890", output);
+        }
+
+        [Fact]
+        public void WriteHeader_ContentLines_Should_Start_And_End_With_Hash_Borders()
+        {
+            var output = CaptureConsoleOutput(() =>
+            {
+                ConsoleWriter.WriteHeader("The Title Text is Too long to fit on a Single Line of Output");
+            });
+
+            var lines = output
+                .Split(Environment.NewLine, StringSplitOptions.RemoveEmptyEntries);
+
+            // Ignore the first and last lines (borders)
+            var contentLines = lines.Skip(1).SkipLast(1);
+
+            Assert.NotEmpty(contentLines);
+
+            foreach (var line in contentLines)
+            {
+                Assert.StartsWith("# ", line);
+                Assert.EndsWith(" #", line);
+                Assert.Equal(44, line.Length);
+            }
         }
         #endregion
 

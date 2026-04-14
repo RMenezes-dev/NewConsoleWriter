@@ -1,10 +1,11 @@
-# ConsoleWriter
+# NewConsoleWriter
 
-ConsoleWriter is a lightweight .NET library that simplifies writing colored
-and expressive text in console applications and batch processes.
+NewConsoleWriter is a lightweight .NET library that simplifies writing 
+colored and expressive text in console applications and batch processes.
 
-It abstracts console color handling and common text transformations, keeping
-application code clean and readable.
+It abstracts console color handling, text transformations, and
+structured output like headers, keeping application code clean and
+readable.
 
 ## Installation
 
@@ -48,6 +49,34 @@ Available transformations:
 - UpperCase
 - LowerCase
 - TitleCase
+
+## Headers (New in v1.1.0)
+
+Create structured and visually consistent headers with automatic
+formatting:
+
+
+ConsoleWriter.WriteHeader("Process started");
+
+ConsoleWriter.WriteHeader(
+    "Warning: incomplete data",
+    ConsoleColor.Yellow
+);
+
+ConsoleWriter.WriteHeader(
+    "Critical error detected",
+    ConsoleColor.White,
+    ConsoleColor.Red,
+    TextTransform.UpperCase
+);
+
+Features:
+- Fixed width (44 characters)
+- Automatic text wrapping
+- Balanced multi-line distribution
+- Long word handling
+- Optional text transformation
+- Foreground and background color support
 
 ## Features
 

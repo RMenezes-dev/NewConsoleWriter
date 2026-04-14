@@ -4,37 +4,50 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("Regular text");
+        Console.WriteLine("WriteHeader Examples:");
+        Console.WriteLine();
+
+        ConsoleWriter.WriteHeader("Simple UPPERCASE title text", TextTransform.UpperCase);
+        Console.WriteLine();
+
+        ConsoleWriter.WriteHeader("A long title text in TITLECASE and with DarkCyan foreground color", 
+            ConsoleColor.DarkCyan, TextTransform.TitleCase);
+        Console.WriteLine();
+
+        ConsoleWriter.WriteHeader(
+            "AlongTITLEtextWITHOUTspacesANDwithDARKREDbackgroundCOLOR",
+            ConsoleColor.White,
+            ConsoleColor.DarkRed
+        );
+        Console.WriteLine();
+
+        Console.WriteLine();
+        Console.WriteLine("WriteLine Transformations Examples:");
         Console.WriteLine();
 
         ConsoleWriter.WriteLine(
-            "Green text", ConsoleColor.Green);
+            "Simple Magenta text", ConsoleColor.Magenta);
 
         ConsoleWriter.WriteLine(
-            "Red text with white background", ConsoleColor.Red, ConsoleColor.White);
-
+            "Red TITLECASE text with white background", ConsoleColor.Red, ConsoleColor.White, TextTransform.TitleCase);
         ConsoleWriter.WriteLine(
-            "Upper case text", ConsoleColor.Yellow, TextTransform.UpperCase);
-
+            "DarkYellow Upper case text", ConsoleColor.DarkYellow, TextTransform.UpperCase);
         ConsoleWriter.WriteLine(
-            "Text in MiXed CaSe To GO tO LoWeR", ConsoleColor.Yellow, TextTransform.LowerCase);
+            "DarkGreen Text in LoWeR CASE", ConsoleColor.DarkGreen, TextTransform.LowerCase);
+        Console.WriteLine();
 
-        ConsoleWriter.WriteLine(
-            "system critical error", ConsoleColor.Red, TextTransform.TitleCase);
-
-        ConsoleWriter.WriteLine(
-            "PROCESSING COMPLETED", ConsoleColor.Green, TextTransform.TitleCase);
-
-        Console.WriteLine("Regular text");
+        Console.WriteLine();
+        Console.WriteLine("WriteLine Semantic Examples:");
         Console.WriteLine();
 
         ConsoleWriter.WriteLineInfo("Starting routine");
+
         ConsoleWriter.WriteLineSuccess("Process successfully completed");
+
         ConsoleWriter.WriteLineWarning("Attention: incomplete data");
+
         ConsoleWriter.WriteLineError("Error processing file");
         Console.WriteLine();
-
-        Console.WriteLine("Regular text");
 
         Console.ReadKey();
     }

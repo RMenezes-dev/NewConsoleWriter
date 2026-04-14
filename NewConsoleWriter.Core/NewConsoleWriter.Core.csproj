@@ -10,17 +10,28 @@
 
     <!-- NuGet metadata -->
     <PackageId>NewConsoleWriter</PackageId>
-    <Version>1.0.0</Version>
+    <Version>1.1.0</Version>
     <Authors>Rafael Menezes</Authors>
     <Company>RMenezes-dev</Company>
+    
     <Description>
-      Lightweight .NET library to simplify colored console output.
+      Lightweight .NET library for writing colored and formatted console output,
+      including semantic messages and structured headers.
     </Description>
 
-    <PackageTags>console batch colors logging</PackageTags>
+    <PackageTags>console;cli;batch;color;logging;dotnet;terminal</PackageTags>
     <RepositoryUrl>https://github.com/RMenezes-dev/NewConsoleWriter</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageProjectUrl>https://github.com/RMenezes-dev/NewConsoleWriter</PackageProjectUrl>
+    
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    
     <PackageReadmeFile>README.md</PackageReadmeFile>
+
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    
     <AssemblyName>NewConsoleWriter</AssemblyName>
   </PropertyGroup>
 
